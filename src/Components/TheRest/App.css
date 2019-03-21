@@ -1,0 +1,64 @@
+html{
+  background: #71CBC4;
+  display: flex;
+  justify-content: center;
+}
+
+.App {
+  text-align: center;
+ 
+ 
+}
+
+
+ul{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: #F5D1B4;
+  
+}
+
+li a{  
+  list-style-type: none;
+  text-decoration: none;
+  font-weight: bold;
+  color: #DE9590;
+  padding: 50px;
+  
+}
+h1 {
+  color: rgb(255, 0, 149);
+  background: blue;
+}
+ul div{
+  border: 3px solid blue;
+  border-radius: 30px;
+ 
+  padding: 10px;
+  margin:  10px;
+}
+
+#nav{
+  width: 100%;
+    padding: 2rem 0 2rem 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-content: space-around;
+    border-bottom: 3px solid black;
+    background: white;
+    min-width: 100%;
+}
+  #nav a{
+    font-size: 2rem;
+    text-decoration: none;
+    color: darkslateblue;
+    padding-right: 5rem;
+    transition: 500ms ease;
+
+    :hover {
+        transform: scale(1.02, 1.02);
+    }
+  }
+
+ 

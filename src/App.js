@@ -1,28 +1,24 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { withRouter } from 'react-router-dom';
+
 import './App.css';
+import LoginView from './Components/Login/LoginView';
+import authenticate from './Components/Login/Authentication';
+import HomeView from './Components/TheRest/HomeView';
+
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        
+        <LoginView />
+
       </div>
     );
   }
 }
-
 export default App;
+// const Authenticate = withRouter(authenticate(HomeView)(LoginView));
+
+// export default withRouter(App);
