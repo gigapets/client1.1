@@ -4,7 +4,7 @@ import LoginPage from './LoginPage';
 import SignUp from './SignUp';
 import LoginNavBar from './LoginNavBar';
 
-class LoginView extends React.Component{
+class LoginView extends React.Component {
     constructor(props) {
         super(props);
         this.state = {}
@@ -22,11 +22,18 @@ class LoginView extends React.Component{
                                 signIn={this.props.signIn}
                                 username={this.state.username}
                                 password={this.state.password}
-                                {...props} />)}
-                        <Route exact path = '/signup' Component = {SignUp} />
+                                {...props} />
+                        )} />
+                    
+                    <Route exact path='/signup' render={(...props) => (
+                        <SignUp {...props} />
+                    )}
+                        />
                 </Switch>
             </div>
         );
     }
 }
-export default View;
+
+
+export default LoginView;

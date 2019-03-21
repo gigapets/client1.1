@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 export class LoginPage extends React.Component {
   constructor(props) {
@@ -6,9 +6,9 @@ export class LoginPage extends React.Component {
     this.state = {};
   }
 
-  Render() {
+  render() {
     return (
-      <Div classname="login">
+      <div className="login">
         <h1>Log In</h1>
         <form>
           <input
@@ -27,7 +27,7 @@ export class LoginPage extends React.Component {
           />
         </form>
         <button onClick={this.props.signIn}> Log In</button>
-      </Div>
+      </div>
     );
   }
 }

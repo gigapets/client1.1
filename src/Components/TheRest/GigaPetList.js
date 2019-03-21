@@ -6,8 +6,6 @@ import DayPost from "./DayPost";
 import DayPosts from "./DayPosts";
 import axios from "axios";
 import { NavLink, Route } from "react-router-dom";
-import HomeNav from "./HomeNav";
-import styled from 'styled-components';
 
 
 class GigaPetList extends Component {

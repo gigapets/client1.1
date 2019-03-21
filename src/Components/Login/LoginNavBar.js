@@ -6,12 +6,12 @@ import SignUp from './SignUp';
 const LoginNavBar = (props) => {
     return (
         <div>
-            <Nav>
+            
                 <Link to="/login" component={LoginPage}> Log In </Link>
-                <Link to="/signup" component={SignUp}>Sign Up</Link>
-            </Nav>
+                <Link to="/signup" component={SignUp}> Sign Up</Link>
+            
         </div>
     );
 }
 
-export default LoginNavBar;
+export default LoginNavBar; 

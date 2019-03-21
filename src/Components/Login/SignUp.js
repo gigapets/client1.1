@@ -1,4 +1,4 @@
-import import React from 'react'
+import React from 'react';
 import axios from 'axios';
 
 class SignUp extends React.Component{
@@ -19,10 +19,10 @@ class SignUp extends React.Component{
     signUp = event => {
         event.preventDefault();
         axios
-            .post(`https://gigapets.herokuapp.com/api/users/register`, {
+            .post(`https://gigapets.herokuapp.com/registration`, {
                 username: this.state.username,
                 password: this.state.password,
-                email: this.state.email
+             
             })
             .then(response => {
                 console.log(response)
@@ -34,7 +34,7 @@ class SignUp extends React.Component{
         this.setState({
             username: '',
             password: '',
-            email:''
+          
         })
     }
     render() {
@@ -56,13 +56,7 @@ class SignUp extends React.Component{
                         name="password"
                         onChange={this.handleChange}
                     />
-                    <input
-                        placeholder="email"
-                        type="text"
-                        value={this.state.email}
-                        name="email"
-                        onChange={this.handleChange}
-                    />
+               
                     <button onClick={this.signUp}> Create Account </button>
                 </form>
             </div>
