@@ -12,7 +12,7 @@ class LoginView extends React.Component {
 
     render() {
         return (
-            <div>
+            <div> 
                 <LoginNavBar />
                 <Switch>
                     <Route exact path="/login"
@@ -20,8 +20,8 @@ class LoginView extends React.Component {
                             <LoginPage
                                 handleChange={this.props.handleChange}
                                 signIn={this.props.signIn}
-                                username={this.state.username}
-                                password={this.state.password}
+                                username={this.props.username}
+                                password={this.props.password}
                                 {...props} />
                         )} />
                     

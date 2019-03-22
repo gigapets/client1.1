@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import LoginPage from './LoginPage';
 import SignUp from './SignUp';
 
-const LoginNavBar = (props) => {
+const LoginNavBar =() => {
     return (
         <div>
             
