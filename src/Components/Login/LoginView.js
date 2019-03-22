@@ -22,7 +22,7 @@ class LoginView extends React.Component {
                                 signIn={this.props.signIn}
                                 username={this.props.username}
                                 password={this.props.password}
-                                {...props} />
+                                 />
                         )} />
                     
                     <Route exact path='/signup' render={(...props) => (

@@ -14,6 +14,7 @@ class App extends React.Component{
 
     if (!localStorage.getItem("token") && window.location.pathname !== "/signup")
       this.props.history.push('/login');
+     
   }
   render() {
     

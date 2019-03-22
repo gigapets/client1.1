@@ -15,18 +15,22 @@ const Authenticate = App => Login =>
         message: "",
         loggedIn: false
       };
+          
     }
     componentDidMount() {
       if (localStorage.getItem("token")) {
-        const token = JSON.parse(localStorage.getItem("token"));
+        this.setState({ loggedIn: true });
 
-        axios
-          .post(`https://gigapets.herokuapp.com/login`, { token: token.token })
-          .then(res => {
-            console.log("token and res.data", token, res.data.token);
-            res.data.token ? this.setState({ loggedIn: true }) : localStorage.clear();
-          })
-          .catch(error => console.log("CDM ERROR", error));
+        // axios
+        //   .post(`https://gigapets.herokuapp.com/login`, {
+        //     username:this.state.username,
+        //       password: this.state.password
+        //   })
+        //   .then(res => {
+        //     console.log("token and res.data", token, res.data.token);
+        //     res.data.token ? this.setState({ loggedIn: true }) : localStorage.clear();
+        //   })
+        //   .catch(error => console.log("CDM ERROR", error));
       }
     }
 
@@ -34,28 +38,34 @@ const Authenticate = App => Login =>
     //     event.preventDefault();
     //     const { name, value } = event.target;
 
-    handleChanges = event => {
-      event.preventDefault();
-      this.setState({
-        [event.target.name]: event.target.value
-      });
-    }
-      signIn = event => {
-        event.preventDefault();
+    // handleChanges = event => {
+    //   event.preventDefault();
+    //   this.setState({
+    //     [event.target.name]: event.target.value
+    //   });
+    // }
 
-        return axios
-          .post(`https://gigapets.herokuapp.com/login`, this.state.user)
+    // handleChanges = e => this.setState({ [e.target.name]: e.target.value });
 
-          .then((res) => {
-            // console.log("response: ", res.data.token);
-            localStorage.setItem("token", res.data.token);
-            this.setState({ loggedIn: true });
-            console.log("Inside res!: ", res);
-      
-          })
-          .catch(err => alert("SignInCatchErr:", err));
-      };
 
+    // signIn = event => {
+    //   event.preventDefault();
+
+    //   axios
+    //     .post(`https://gigapets.herokuapp.com/login`, {
+    //       username: this.state.username,
+    //       password: this.state.password
+    //     })
+
+    //     .then(res => {
+    //       console.log("then", res.data);
+    //       localStorage.setItem("token:", res.data.token);
+    //       this.props.history.push('/')
+    //     })
+    //     .catch(err => {
+    //     console.log("login Error")
+    //   })
+    //   };
       render() {
         if (this.state.loggedIn) {
           return <App loggedIn={this.state.loggedIn} />;

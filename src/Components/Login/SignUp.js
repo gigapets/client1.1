@@ -18,6 +18,7 @@ class SignUp extends React.Component{
   
     signUp = event => {
         event.preventDefault();
+     
         axios
             .post(`https://gigapets.herokuapp.com/registration`, {
                 username: this.state.username,
@@ -25,8 +26,9 @@ class SignUp extends React.Component{
              
             })
             .then(response => {
-                console.log(response)
-                alert("Welcome to GigaPets")
+                console.log("response:",response);
+                console.log("Welcome to GigaPets");
+                window.location.replace('/login');
             })
             .catch(err => console.log(err));
         
@@ -36,6 +38,7 @@ class SignUp extends React.Component{
             password: '',
           
         })
+        
     }
     render() {
         return (
