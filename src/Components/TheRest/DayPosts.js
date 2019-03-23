@@ -5,10 +5,15 @@ import DayPost from "./DayPost";
 import "./DayPostContainer.css";
 
 class DayPosts extends React.Component {
+  state = {
+    isEditing: false
+  };
+
   render() {
     return (
       <div className="dayPosts">
         <h1>Your Days</h1>
+        <ul>
         {this.props.dayPosts.map(dayPost => {
           console.log("this.props:", this.props);
           return (
@@ -26,12 +31,15 @@ class DayPosts extends React.Component {
                 sPoints={dayPost.spoints}
                 key={dayPost.id}
                 handleChanges={this.props.handleChanges}
-                deleteDayPost={this.props.deleteDayPost}
+                deleteDayPost={this.deleteDayPost}
                 updateDayPost={this.props.updateDayPost}
               />
             </div>
           );
         })}
+            </ul>
+        
+      
       </div>
     );
   }

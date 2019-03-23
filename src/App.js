@@ -4,6 +4,8 @@ import { withRouter } from 'react-router-dom';
 import './App.css';
 import LoginView from './Components/Login/LoginView';
 import Authenticate from './Components/Login/Authentication';
+// import GigaPetList from './Components/TheRest/GigaPetList';
+import Handler from './Components/Posts/Handler';
 import GigaPetList from './Components/TheRest/GigaPetList';
 
 

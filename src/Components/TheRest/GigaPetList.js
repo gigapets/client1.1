@@ -29,23 +29,27 @@ class GigaPetList extends Component {
         .post("https://gigapets.herokuapp.com/gigapets", dayPost)
         .then(response => this.setState({ dayPosts: response.data }))
         .catch(err => console.log("Add Day Post Error: ", err));
-    };
+  };
+  
 
-    // deleteDayPost = (event, id) => {
-    //   event.preventDefault();
-    //   axios
-    //
+  handleChanges = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
 
-    // };
 
-  deletePost = () => {
+    deleteDayPost = (event, id) => {
       event.preventDefault();
       axios
-        .delete(`https://gigapets.herokuapp.com/gigapets/${id}`)
-        .then(response => console.log('DeleteResponse:', response))
-        .catch(err => console.log("DeleteError:", err)
-    }
-  }  
+        .delete(`https://gigapets.herokuapp.com/gigapets${id}`)
+        .then(response => {
+          this.setState({ dayPosts: response.data });
+          console.log("this.state:", this.state)
+        });
+    
+
+    };
+
+
         
 
     render() {
@@ -69,12 +73,23 @@ class GigaPetList extends Component {
                 {...props}
                 dayPosts={this.state.dayPosts}
                 handleChanges={this.handleChanges}
-                deletePost={this.deletePost}
+                deleteDayPost={this.deleteDayPost}
                 updateDayPost={this.updateDayPost}
               />
             )}
           />
-
+{/* 
+          <Route path="/gigapets/:id"
+            render={props => {
+              <DayPost
+                {...props}
+                dayPosts = { this.state.dayPosts}
+              handleChanges = { this.handleChanges }
+              deleteDayPost = { this.deleteDayPost }
+                />
+          }}
+        /> */}
+{/*   
           <Route 
             exact path="/deletePost"
             render ={props => (deletePost={this.deletePost}
@@ -82,15 +97,17 @@ class GigaPetList extends Component {
             deleteError={this.deleteError}
             />
             )}
-            />
+            /> */}
 
           <Route
             exact
             path="/DayForm"
-            render={props => <DayForm {...props} addDayPost={this.addDayPost} />}
+            render={props =>
+              <DayForm {...props} addDayPost={this.addDayPost} />}
+            
           />
 
-
+          
           <Route
             exact path= '/'
             path="/gigapets/:id"

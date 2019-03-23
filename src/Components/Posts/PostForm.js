@@ -1,13 +1,7 @@
-//the form at the bottom of the DayPage which allows users to input data that gets sent over to the backend.
+import React, { Component } from "react";
+import axios from "axios";
 
-// a form is rendered to the screen
-
-// the form sends out a push request with the inputted data.
-
-import React from "react";
-import axios from 'axios';
-
-class DayForm extends React.Component {
+class PostForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -23,28 +17,32 @@ class DayForm extends React.Component {
       sPoints: ""
     };
   }
-  addDayPost = event => {
-    event.preventDefault();
-    this.props.addDayPost(event, this.state);
 
+  addPost = e => {
+    e.preventDefault();
+    // add code to create the Post using the api
+    const newPost = {
+      name: this.state.name,
+      age: this.state.age,
+      height: this.state.height
+    };
+
+    axios.post("`http://gigapets.herokuapp.com/gigapets", newPost).then(res => {
+      this.props.resetPosts(res);
+      this.props.history.push("/Posts-list");
+    });
     this.setState({
-      date: "",
       name: "",
-      breakfast: "",
-      bPoints: "",
-      lunch: "",
-      lPoints: "",
-      dinner: "",
-      dPoints: "",
-      snacks: "",
-      sPoints: ""
+      age: "",
+      height: ""
     });
   };
 
-  handleInputChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
+  handleInputChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
   };
 
+ 
   render() {
     return (
       <div className="dayForm">
@@ -125,12 +123,12 @@ class DayForm extends React.Component {
               placeholder="Snack Score"
             />
           </div>
+        
+          <button type="submit">Add to the village</button>
         </form>
-
-        <button onClick={this.addDayPost}>Submit!</button>
       </div>
     );
   }
 }
 
-export default DayForm;
+export default PostForm;
