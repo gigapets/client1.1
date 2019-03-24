@@ -1,7 +1,8 @@
 import React from "react";
 import axios from 'axios';
+import { NavLink } from 'react-router-dom'; 
 
-
+import PutDayPostForm from './PutDayPostForm';
 const DayPost = props => {
 
   const deleteDayPost = (event, id) => {
@@ -16,6 +17,14 @@ const DayPost = props => {
       });
   
 
+  };
+  const editDayPost = (event, id) => {
+    event.preventDefault();
+    axios
+      .put(`https://gigapets.herokuapp.com/gigapets/${props.id}`)
+      .then(response => console.log("response: ",response))
+      .catch(err => console.log(err));
+    
   };
 
 
@@ -34,7 +43,7 @@ const DayPost = props => {
         <p>Snack Score: {props.sPoints}</p>
       
         <button onClick={deleteDayPost}>Delete Post</button>
-                    
+ 
       </div>
     );
   };
@@ -52,4 +61,4 @@ const DayPost = props => {
 //   sPoints: ""
 // };
 
-export default DayPost;
+export default DayPost; 

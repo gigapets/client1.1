@@ -41,6 +41,17 @@ class DayForm extends React.Component {
     });
   };
 
+
+ editDayPost = (event, id) => {
+    event.preventDefault();
+    axios
+      .put(`https://gigapets.herokuapp.com/gigapets/${id}`)
+      .then(response => console.log("response: ",response))
+      .catch(err => console.log(err));
+    
+  };
+
+
   handleInputChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
@@ -125,9 +136,10 @@ class DayForm extends React.Component {
               placeholder="Snack Score"
             />
           </div>
+       
+          <button onClick={this.addDayPost}>Submit!</button>
         </form>
 
-        <button onClick={this.addDayPost}>Submit!</button>
       </div>
     );
   }

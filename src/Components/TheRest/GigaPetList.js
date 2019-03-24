@@ -24,11 +24,10 @@ class GigaPetList extends Component {
         .catch(err => console.log("ComponentDidMount error: ", err));
     }
 
-    addDayPost = (event, dayPost) => {
+    addDayPost = ( event, dayPost) => {
       axios
         .post("https://gigapets.herokuapp.com/gigapets", dayPost)
-        .then(response => this.setState({ dayPosts: response.data }),
-        window.location.replace('/gigapets'))
+        .then(response => this.setState({ dayPosts: response.data }))
         .catch(err => console.log("Add Day Post Error: ", err));
   };
   

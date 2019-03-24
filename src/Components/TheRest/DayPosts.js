@@ -15,7 +15,7 @@ class DayPosts extends React.Component {
     return (
       <div className="dayPosts">
         <h1>Your Day Posts!</h1>
-        <ul>
+        <div>
         {this.props.dayPosts.map(dayPost => {
           console.log("this.props:", this.props);
           return (
@@ -41,8 +41,8 @@ class DayPosts extends React.Component {
             </div>
           );
         })}
-            </ul>
-        
+     
+      </div>
       
       </div>
     );
