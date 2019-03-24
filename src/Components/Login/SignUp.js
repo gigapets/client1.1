@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import LoginNavBar from './LoginNavBar';
+import './Login.css';
 
 class SignUp extends React.Component{
     constructor(props) {

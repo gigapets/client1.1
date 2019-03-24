@@ -28,7 +28,7 @@ class GigaPetList extends Component {
       axios
         .post("https://gigapets.herokuapp.com/gigapets", dayPost)
         .then(response => this.setState({ dayPosts: response.data }),
-         window.location.replace('/gigapets'), alert("Post Added!"))
+        window.location.replace('/gigapets'))
         .catch(err => console.log("Add Day Post Error: ", err));
   };
   
