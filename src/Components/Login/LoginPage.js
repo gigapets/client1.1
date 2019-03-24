@@ -48,11 +48,9 @@ class LoginPage extends Component {
   render() {
     return (
       <div className='login'>
-        <form onSubmit={this.submitHandler}>
-          <section>
-            <h1>Login Page</h1>
-          </section>
-          <label >Username</label>
+        <h1>Login Page</h1>
+        <form id='login' onSubmit={this.submitHandler}>
+        
           <input
             type="text"
             id="username"
@@ -60,7 +58,6 @@ class LoginPage extends Component {
             value={this.state.user.username}
             onChange={this.inputHandler}
           />
-          <label>Password</label>
           <input
             type="password"
             id="password"

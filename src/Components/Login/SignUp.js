@@ -46,8 +46,8 @@ class SignUp extends React.Component{
         return (
             <div>
                 <h1>Create An Account</h1>
-                <form>
-                    <label>Username</label>
+                <form id = "login">
+               
                     <input
                         placeholder="username"
                         type="text"
@@ -55,7 +55,7 @@ class SignUp extends React.Component{
                         name="username"
                         onChange={this.handleChange}
                     />
-                    <label>Password</label>
+             
                     <input
                         placeholder="Password"
                         type="text"
@@ -63,7 +63,7 @@ class SignUp extends React.Component{
                         name="password"
                         onChange={this.handleChange}
                     />
-               
+                    
                     <button onClick={this.signUp}> Create Account </button>
                 </form>
             </div>
