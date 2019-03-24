@@ -22,7 +22,7 @@ class App extends React.Component{
     
     return (
       <div className="App">
-        <Auth />
+     <Auth />
       </div>
     );
   }

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import Post from "./Post";
 
-class Posts extends Component {
+class PostList extends Component {
   state = {
     isEditing: false
   };
@@ -37,8 +37,4 @@ class Posts extends Component {
   }
 }
 
-Post.defaultProps = {
-  Posts: []
-};
-
-export default Posts;
+export default PostList;

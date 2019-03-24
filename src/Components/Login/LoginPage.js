@@ -52,7 +52,7 @@ class LoginPage extends Component {
           <section>
             <h1>Login Page</h1>
           </section>
-          <label htmlFor="username">Username</label>
+          <label >Username</label>
           <input
             type="text"
             id="username"
@@ -60,7 +60,7 @@ class LoginPage extends Component {
             value={this.state.user.username}
             onChange={this.inputHandler}
           />
-          <label htmlFor="password">Password</label>
+          <label>Password</label>
           <input
             type="password"
             id="password"

@@ -6,7 +6,7 @@ import Posts from "./Posts";
 import Post from "./Post";
 import NavBar from "./NavBar";
 import Home from "./Home";
-import { Route } from "react-router-dom";
+import { BrowserRouter as Router, NavLink, Route, withRouter } from "react-router-dom";
 
 class Handler extends Component {
   constructor(props) {
@@ -21,7 +21,7 @@ class Handler extends Component {
 
   componentDidMount = () => {
     axios.get("http://gigapets.herokuapp.com/gigapets").then(res => {
-      this.setState({ Posts: res.data });
+      this.setState({ posts: res.data });
     });
   };
 
@@ -45,7 +45,7 @@ class Handler extends Component {
     return (
       <div className="App">
         <NavBar />
-        <Route path="/" exact render={props => <Home />} />
+        <Route path="/gigapets" exact render={props => <Home />} />
         <Route
           path="/PostForm"
           render={props => <PostForm {...props} resetPosts={this.resetPosts} />}

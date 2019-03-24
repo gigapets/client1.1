@@ -27,7 +27,8 @@ class GigaPetList extends Component {
     addDayPost = (event, dayPost) => {
       axios
         .post("https://gigapets.herokuapp.com/gigapets", dayPost)
-        .then(response => this.setState({ dayPosts: response.data }))
+        .then(response => this.setState({ dayPosts: response.data }),
+         window.location.replace('/gigapets'), alert("Post Added!"))
         .catch(err => console.log("Add Day Post Error: ", err));
   };
   
@@ -40,7 +41,7 @@ class GigaPetList extends Component {
     deleteDayPost = (event, id) => {
       event.preventDefault();
       axios
-        .delete(`https://gigapets.herokuapp.com/gigapets${id}`)
+        .delete(`https://gigapets.herokuapp.com/gigapets/${id}`)
         .then(response => {
           this.setState({ dayPosts: response.data });
           console.log("this.state:", this.state)
@@ -56,7 +57,7 @@ class GigaPetList extends Component {
       return (
         <div className="App">
           <div className="navBar" id="nav">
-            <NavLink exact to="/">
+            <NavLink exact to="/gigapets">
               <div id="navLink">Home</div>
             </NavLink>
 
@@ -67,7 +68,7 @@ class GigaPetList extends Component {
 
           <Route
             exact
-            path="/"
+            path="/gigapets"
             render={props => (
               <DayPosts
                 {...props}
@@ -78,17 +79,17 @@ class GigaPetList extends Component {
               />
             )}
           />
-{/* 
-          <Route path="/gigapets/:id"
-            render={props => {
+ 
+          {/* <Route path="/gigapets/:id"
+            render={ props => (
               <DayPost
                 {...props}
                 dayPosts = { this.state.dayPosts}
               handleChanges = { this.handleChanges }
               deleteDayPost = { this.deleteDayPost }
                 />
-          }}
-        /> */}
+            )}
+        />  */}
 {/*   
           <Route 
             exact path="/deletePost"
@@ -109,7 +110,6 @@ class GigaPetList extends Component {
 
           
           <Route
-            exact path= '/'
             path="/gigapets/:id"
             render={props => (
               <DayPost

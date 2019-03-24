@@ -1,9 +1,22 @@
 import React from "react";
-
+import axios from 'axios';
 
 
 const DayPost = props => {
 
+  const deleteDayPost = (event, id) => {
+    event.preventDefault();
+    axios
+      .delete(`https://gigapets.herokuapp.com/gigapets/${props.id}`)
+      .then(response => {
+        alert("Post Deleted!")
+        window.location.reload();
+
+       console.log(response.data);
+      });
+  
+
+  };
 
 
   
@@ -20,7 +33,7 @@ const DayPost = props => {
         <p>Snacks: {props.snacks}</p>
         <p>Snack Score: {props.sPoints}</p>
       
-        <button onClick={event => {this.props.deleteDayPost(event, props.id) }}>Delete Post</button>
+        <button onClick={deleteDayPost}>Delete Post</button>
                     
       </div>
     );

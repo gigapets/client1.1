@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import LoginNavBar from './LoginNavBar';
 
 class SignUp extends React.Component{
     constructor(props) {
@@ -45,6 +46,7 @@ class SignUp extends React.Component{
             <div>
                 <h1>Create An Account</h1>
                 <form>
+                    <label>Username</label>
                     <input
                         placeholder="username"
                         type="text"
@@ -52,6 +54,7 @@ class SignUp extends React.Component{
                         name="username"
                         onChange={this.handleChange}
                     />
+                    <label>Password</label>
                     <input
                         placeholder="Password"
                         type="text"

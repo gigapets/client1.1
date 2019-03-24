@@ -9,16 +9,19 @@ class DayPosts extends React.Component {
     isEditing: false
   };
 
+  
+
   render() {
     return (
       <div className="dayPosts">
-        <h1>Your Days</h1>
+        <h1>Your Day Posts!</h1>
         <ul>
         {this.props.dayPosts.map(dayPost => {
           console.log("this.props:", this.props);
           return (
             <div id="dayPost" className="dayPostContainer">
               <DayPost
+                id={dayPost.id}
                 date={dayPost.date}
                 name={dayPost.name}
                 breakfast={dayPost.breakfast}
@@ -31,9 +34,10 @@ class DayPosts extends React.Component {
                 sPoints={dayPost.spoints}
                 key={dayPost.id}
                 handleChanges={this.props.handleChanges}
-                deleteDayPost={this.deleteDayPost}
+                deleteDayPost={this.props.deleteDayPost}
                 updateDayPost={this.props.updateDayPost}
               />
+              
             </div>
           );
         })}

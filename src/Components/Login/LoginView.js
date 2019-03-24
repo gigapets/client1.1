@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import LoginPage from './LoginPage';
 import SignUp from './SignUp';
 import LoginNavBar from './LoginNavBar';
+import '../../Components/TheRest/App.css';
 
 class LoginView extends React.Component {
     constructor(props) {
